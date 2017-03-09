@@ -5,7 +5,7 @@ import parser from '../src/parser';
 
 describe('Parser', () => {
   describe('Units', () => {
-    const possibilities = ["m", "m/s", "s"];
+    const possibilities = ['in', 'in2', 'in3'];
     const runTest = (unit) => {
       it(`should extract ${unit} when typed with spaces`, () => {
         const tokens = parser(`1 ${unit}`);
@@ -13,7 +13,7 @@ describe('Parser', () => {
       });
 
       xit(`should extract ${unit} when typed without spaces`, () => {
-        const tokens = parser(`1 ${unit}`);
+        const tokens = parser(`1${unit}`);
         expect(head(tokens.unit)).to.equal(unit);
       });
 
