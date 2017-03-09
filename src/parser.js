@@ -9,37 +9,28 @@ import {
   join,
 } from 'ramda';
 
-const unitsWithNumbers = [
-  'yd3',
-  'yd2',
-  'mm3',
-  'mm2',
-  'mi2',
-  'm3',
-  'm2',
-  'km3',
-  'km2',
-  'in2',
-  'ft3',
-  'ft2',
-  'cm3',
-  'cm2',
-];
-
 const sortedUnits = compose(
   join('|'),
   reverse,
   sortBy,
 )(toLower, convert().possibilities());
 
-const UNITS_WITH_NUMBERS = new RegExp(`${unitsWithNumbers}`, 'gi');
 const UNITS = new RegExp(`${sortedUnits}`, 'gi');
-const NUMBERS = new RegExp('\\d*\\.?\\d', 'gi');
-const PREPOSITIONS = new RegExp('\\s(in|at|to)\\s', 'i');
+const NUMBERS = /\d*\.?\d+/g;
+const PREPOSITIONS = /\s(in|at|to)\s/i;
+const COMMA = /,/g;
 
 const removePrepositions = replace(PREPOSITIONS, '');
+const removeUnits = replace(UNITS, '');
+const removeCommas = replace(COMMA, '');
 const matchUnits = match(UNITS);
-const extractNumbers = match(NUMBERS);
+const matchNumbers = match(NUMBERS);
+
+const extractNumbers = compose(
+  matchNumbers,
+  removeCommas,
+  removeUnits,
+);
 const extractUnits = compose(
   matchUnits,
   removePrepositions,
