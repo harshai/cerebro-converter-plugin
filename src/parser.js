@@ -15,7 +15,7 @@ const sortedUnits = compose(
   sortBy,
 )(toLower, convert().possibilities());
 
-const UNITS = new RegExp(`${sortedUnits}`, 'gi');
+const UNITS = new RegExp(`${sortedUnits}`, 'g');
 const NUMBERS = /\d*\.?\d+/g;
 const PREPOSITIONS = /\s(in|at|to)\s/i;
 const COMMA = /,/g;

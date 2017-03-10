@@ -35,6 +35,10 @@ describe('Parser', () => {
       expect(head(token3.unit)).to.equal('in');
       expect(token3.unit.length).to.equal(1);
     });
+
+    it('Should extract both units');
+
+    it('Should ignore all units after the second unit');
   });
 
   describe('amounts', () => {
@@ -49,7 +53,7 @@ describe('Parser', () => {
         expect(head(tokens3.amount)).to.equal('762.12');
         expect(head(tokens4.amount)).to.equal('123762.12');
       });
-      it(`should extract the amount following ${unit}`, () => {
+      it(`should extract the amount from behind ${unit}`, () => {
         const tokens = parser(`${unit}100`);
         const tokens2 = parser(`${unit} 402`);
         const tokens3 = parser(`${unit} 762.12`);

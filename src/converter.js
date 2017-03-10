@@ -22,7 +22,7 @@ export default ({ amount, unit }) => {
   const possibilities = reject(equals(from), convertObj.possibilities());
   const conversion = equals(from, to) ? convertObj.toBest({ exclude: [from] }) : convertTo(to);
 
-  const result = {
+  return {
     orig: formatOutput(value, from),
     conversion: formatOutput(conversion.val || conversion, conversion.unit || to),
     possibleConversions: zipWith(
@@ -31,7 +31,6 @@ export default ({ amount, unit }) => {
       possibilities,
     ),
   };
-  return result;
 };
 
 // TODO: Add color, timezones, currencies.
