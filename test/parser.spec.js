@@ -1,6 +1,6 @@
 import convert from 'convert-units';
 import { expect } from 'chai';
-import { head, forEach } from 'ramda';
+import { head, forEach, last } from 'ramda';
 import parser from '../src/parser';
 
 describe('Parser', () => {
@@ -36,9 +36,17 @@ describe('Parser', () => {
       expect(token3.unit.length).to.equal(1);
     });
 
-    it('Should extract both units');
+    it('Should extract both units', () => {
+      const token = parser('1 ft in in');
+      expect(head(token.unit)).to.equal('ft');
+      expect(last(token.unit)).to.equal('in');
+    });
 
-    it('Should ignore all units after the second unit');
+    it('Should ignore all units after the second unit', () => {
+      const token = parser('1 ft in in kg km/s');
+      expect(head(token.unit)).to.equal('ft');
+      expect(last(token.unit)).to.equal('in');
+    });
   });
 
   describe('amounts', () => {

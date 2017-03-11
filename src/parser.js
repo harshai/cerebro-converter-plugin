@@ -7,6 +7,7 @@ import {
   toLower,
   reverse,
   join,
+  take,
 } from 'ramda';
 
 const sortedUnits = compose(
@@ -32,6 +33,7 @@ const extractNumbers = compose(
   removeUnits,
 );
 const extractUnits = compose(
+  take(2), // ignore matches after the first two units
   matchUnits,
   removePrepositions,
 );
