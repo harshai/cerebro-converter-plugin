@@ -8,7 +8,7 @@ import {
   equals,
 } from 'ramda';
 
-const formatOutput = (amount, unit) => ({ amount, unit });
+import { formatNumber } from 'humanize-plus';
 
 export default ({ amount, unit }) => {
   const from = head(unit);
@@ -21,6 +21,10 @@ export default ({ amount, unit }) => {
   const convertTo = toUnit => convertObj.to(toUnit);
   const possibilities = reject(equals(from), convertObj.possibilities());
   const conversion = equals(from, to) ? convertObj.toBest({ exclude: [from] }) : convertTo(to);
+  const formatOutput = (amt, unt) => ({
+    amount: formatNumber(amt),
+    unit: (amt === 1 ? convert().describe(unt).singluar : convert().describe(unt).plural).toLowerCase(),
+  });
 
   return {
     orig: formatOutput(value, from),

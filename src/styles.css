@@ -1,4 +1,25 @@
-.listItem {
-  list-style-type: none;
-  padding: 0.25rem;
+.row {
+  padding-top: 0.25rem;
+}
+
+.amount {
+  text-align: right;
+  padding-right: 0.5rem;
+}
+
+.unit {
+  padding-left: 0.5rem;
+}
+
+.regularText {
+  font-weight: normal;
+}
+
+.muted {
+  composes: regularText;
+  color: var(--secondary-font-color);
+}
+
+.divider {
+  border: var(--main-border);
 }

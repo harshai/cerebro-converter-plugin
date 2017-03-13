@@ -51,6 +51,7 @@
     "chai-spies": "^0.7.1",
     "chai-things": "^0.2.0",
     "convert-units": "^2.0.1",
+    "humanize-plus": "^1.8.2",
     "istanbul": "^0.4.5",
     "ramda": "^0.23.0",
     "react": "^15.4.2"
