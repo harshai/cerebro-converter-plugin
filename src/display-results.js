@@ -2,11 +2,16 @@ import React, { PropTypes } from 'react';
 import styles from './styles.css';
 
 const Possibilities = ({ amount, unit }) => (
-  <tr className={styles.row}>
+  <tr key={`${unit}${amount}`} className={styles.row}>
     <td className={styles.amount}>{amount}</td>
     <td className={styles.unit}>{unit}</td>
   </tr>
 );
+
+Possibilities.propTypes = {
+  amount: PropTypes.number,
+  unit: PropTypes.string,
+}.isRequired;
 
 const Conversions = ({ orig, conversion, possibleConversions }) => (
   <div>
@@ -26,4 +31,12 @@ Conversions.propTypes = {
     amount: PropTypes.number,
     unit: PropTypes.string,
   })).isRequired,
+  orig: PropTypes.shape({
+    amount: PropTypes.number,
+    unit: PropTypes.string,
+  }).isRequired,
+  conversion: PropTypes.shape({
+    amount: PropTypes.number,
+    unit: PropTypes.string,
+  }).isRequired,
 };

@@ -6,9 +6,11 @@ import {
   reject,
   zipWith,
   equals,
+  reverse,
+  compose,
 } from 'ramda';
 
-import { formatNumber } from 'humanize-plus';
+import formatNumber from 'humanize-number';
 
 export default ({ amount, unit }) => {
   const from = head(unit);
@@ -16,14 +18,16 @@ export default ({ amount, unit }) => {
   const value = head(amount) || 1;
 
   if (!from) return null;
-
   const convertObj = convert(value).from(from);
   const convertTo = toUnit => convertObj.to(toUnit);
-  const possibilities = reject(equals(from), convertObj.possibilities());
+  const possibilities = compose(
+    reverse,
+    reject(equals(from)),
+    )(convertObj.possibilities());
   const conversion = equals(from, to) ? convertObj.toBest({ exclude: [from] }) : convertTo(to);
   const formatOutput = (amt, unt) => ({
-    amount: formatNumber(amt),
-    unit: (amt === 1 ? convert().describe(unt).singluar : convert().describe(unt).plural).toLowerCase(),
+    amount: formatNumber(+((+amt).toFixed(2)).toString()),
+    unit: convert().describe(unt)[+amt === 1 ? 'singular' : 'plural'].toLowerCase(),
   });
 
   return {
