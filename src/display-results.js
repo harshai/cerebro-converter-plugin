@@ -1,8 +1,11 @@
 import React, { PropTypes } from 'react';
+import styles from './styles.css';
 
 const Conversions = ({ possibleConversions }) => (
   <ul>
-    {possibleConversions.map(possibility => <li key={possibility.amount}>{possibility.amount} {possibility.unit}</li>)}
+    {possibleConversions.map(
+      possibility =>
+        <li className={styles.listItem} key={possibility.amount}>{possibility.amount} {possibility.unit}</li>)}
   </ul>
 );
 
