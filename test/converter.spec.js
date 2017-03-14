@@ -1,4 +1,5 @@
 import chai, { expect } from 'chai';
+import { forEach } from 'ramda';
 import chaiThings from 'chai-things';
 import converter from '../src/converter';
 
@@ -69,6 +70,57 @@ describe('Converter', () => {
     };
     const conversion = converter(data);
     expect(conversion.orig).to.deep.equal({ amount: '1', unit: 'kilogram' });
+  });
+
+  it('should return the conversion category', () => {
+    const data = [{
+      unit: ['kg'],
+      amount: [1],
+      category: 'mass',
+    }, {
+      unit: ['l'],
+      amount: [1],
+      category: 'volume',
+    }, {
+      unit: ['s'],
+      amount: [1],
+      category: 'time',
+    }, {
+      unit: ['m'],
+      amount: [1],
+      category: 'length',
+    }, {
+      unit: ['m2'],
+      amount: [1],
+      category: 'area',
+    }, {
+      unit: ['bar'],
+      amount: [1],
+      category: 'pressure',
+    }, {
+      unit: ['C'],
+      amount: [1],
+      category: 'temperature',
+    }, {
+      unit: ['km/h'],
+      amount: [1],
+      category: 'speed',
+    }, {
+      unit: ['b'],
+      amount: [1],
+      category: 'digital',
+    }, {
+      unit: ['ppm'],
+      amount: [1],
+      category: 'partsPer',
+    },
+    ];
+    const runTest = (unitObj) => {
+      const conversion = converter(unitObj);
+      expect(conversion.category).to.equal(unitObj.category);
+    };
+
+    forEach(runTest, data);
   });
 });
 

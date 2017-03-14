@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import styles from '../styles.css';
+import styles from '../assets/styles.css';
 
 const Possibilities = ({ possibleConversions }) => (
   <table>

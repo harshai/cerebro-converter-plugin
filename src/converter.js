@@ -38,6 +38,7 @@ export default ({ amount, unit }) => {
       map(convertTo, possibilities),
       possibilities,
     ),
+    category: convert().describe(from).measure,
   };
 };
 
