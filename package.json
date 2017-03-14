@@ -1,7 +1,7 @@
 {
   "name": "cerebro-converter-plugin",
   "version": "0.0.2",
-  "description": "",
+  "description": "Cerebro plugin that converts units, timezones, colors and currencies",
   "license": "MIT",
   "repository": "harshai/cerebro-converter-plugin",
   "author": {

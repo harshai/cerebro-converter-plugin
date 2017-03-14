@@ -8,7 +8,7 @@ const doNothing = results => (
   !results
 );
 
-const plugin = ({ term, display }) => {
+const plugin = ({ term, display, actions }) => {
   const results = compose(
     converter,
     parse,

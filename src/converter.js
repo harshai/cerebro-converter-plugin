@@ -43,3 +43,8 @@ export default ({ amount, unit }) => {
 };
 
 // TODO: Add color, timezones, currencies.
+// TODO: Remove 0 values (try 1s)
+// TODO: Support aliases
+// TODO: Trim number of possibilities to 5-7
+// TODO: Reimplement toBest(), taking the locale into consideration
+// TODO: Refractor this file
