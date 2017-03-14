@@ -23,3 +23,8 @@
 .divider {
   border: var(--main-border);
 }
+
+.text {
+  margin-top: 0;
+  margin-bottom: 0;
+}
