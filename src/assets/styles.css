@@ -32,3 +32,10 @@
 .textCenter {
   text-align: center;
 }
+
+.icon {
+  width: 100%;
+  text-align: center;
+  padding-bottom: 0.25rem;
+  color: var(--secondary-font-color);
+}

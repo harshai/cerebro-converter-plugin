@@ -1,13 +1,13 @@
 import React, { PropTypes } from 'react';
-import Icon from 'react-svg-icons';
 
 import styles from './assets/styles.css';
 import PossibleConversions from './components/possibile-conversions';
 import MainConversion from './components/main-conversion';
+import Icon from './components/icon';
 
 const Conversions = ({ orig, conversion, possibleConversions, category }) => (
   <div>
-    <Icon name={category} />
+    <Icon category={category} />
     <MainConversion orig={orig} conversion={conversion} />
     <hr className={styles.divider} />
     <PossibleConversions possibleConversions={possibleConversions} />

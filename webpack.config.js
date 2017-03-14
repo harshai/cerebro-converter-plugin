@@ -36,10 +36,8 @@ module.exports = {
         }
       }]
     }, {
-      test: /\.png$/,
-      use: {
-        loader: 'url-loader'
-      }
+      test: /\.svg$/,
+      loader: 'raw-loader'
     }]
   }
 };
