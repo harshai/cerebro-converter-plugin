@@ -24,7 +24,11 @@
   border: var(--main-border);
 }
 
-.text {
+.noVerticalMargin {
   margin-top: 0;
   margin-bottom: 0;
+}
+
+.textCenter {
+  text-align: center;
 }
