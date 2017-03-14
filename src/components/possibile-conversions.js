@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import styles from '../assets/styles.css';
 
 const Possibilities = ({ possibleConversions }) => (
-  <table>
+  <table className={styles.table}>
     {possibleConversions.map(({ unit, amount }) =>
       <tr key={`${unit}${amount}`} className={styles.row}>
         <td className={styles.amount}>{amount}</td>

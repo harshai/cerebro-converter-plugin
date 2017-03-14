@@ -8,21 +8,22 @@ import area from '../assets/icons/area.svg';
 import volume from '../assets/icons/volume.svg';
 import pressure from '../assets/icons/pressure.svg';
 import time from '../assets/icons/time.svg';
-// import speed from '../assets/icons/speed.svg';
+import speed from '../assets/icons/speed.svg';
+import length from '../assets/icons/length.svg';
 import partsPer from '../assets/icons/partsPer.svg';
 import digital from '../assets/icons/digital.svg';
 import generic from '../assets/icons/generic.svg';
 
 const svgStyles = {
-  width: '3rem',
-  height: '3rem',
+  width: '2.5rem',
+  height: '2.5rem',
   fill: 'currentColor',
 };
 
 const chooseIcon = (category) => {
   switch (category) {
     case 'length':
-      return <SVGInline {...svgStyles} svg={mass} />;
+      return <SVGInline {...svgStyles} svg={length} />;
     case 'area':
       return <SVGInline {...svgStyles} svg={area} />;
     case 'mass':
@@ -33,8 +34,8 @@ const chooseIcon = (category) => {
       return <SVGInline {...svgStyles} svg={pressure} />;
     case 'time':
       return <SVGInline {...svgStyles} svg={time} />;
-    // case 'speed':
-    //   return <SVGInline {...svgStyles} svg={speed} />;
+    case 'speed':
+      return <SVGInline {...svgStyles} svg={speed} />;
     case 'partsPer':
       return <SVGInline {...svgStyles} svg={partsPer} />;
     case 'digital':
