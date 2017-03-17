@@ -123,4 +123,3 @@ describe('Converter', () => {
     forEach(runTest, data);
   });
 });
-
