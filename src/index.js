@@ -4,11 +4,9 @@ import parse from './parser';
 import DisplayResults from './display-results';
 
 
-const doNothing = results => (
-  !results
-);
+const doNothing = results => !results;
 
-const plugin = ({ term, display, actions }) => {
+const plugin = ({ term, display }) => {
   const results = compose(
     converter,
     parse,
