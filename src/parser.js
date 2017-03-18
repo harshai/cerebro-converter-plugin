@@ -10,6 +10,8 @@ import {
   take,
 } from 'ramda';
 
+import currencies from './helpers/constants';
+
 const sortedUnits = compose(
   join('|'),
   reverse,
@@ -17,6 +19,7 @@ const sortedUnits = compose(
 )(toLower, convert().possibilities());
 
 const UNITS = new RegExp(`${sortedUnits}`, 'g');
+const CURRENCIES = new RegExp(`${currencies.join('|')}`, 'g');
 const NUMBERS = /\d*\.?\d+/g;
 const PREPOSITIONS = /\s(in|at|to)\s/i;
 const COMMA = /,/g;
@@ -26,6 +29,7 @@ const removeUnits = replace(UNITS, '');
 const removeCommas = replace(COMMA, '');
 const matchUnits = match(UNITS);
 const matchNumbers = match(NUMBERS);
+const matchCurrencies = match(CURRENCIES);
 
 const extractNumbers = compose(
   matchNumbers,
@@ -37,8 +41,14 @@ const extractUnits = compose(
   matchUnits,
   removePrepositions,
 );
+const extractCurrencies = compose(
+  take(2),
+  matchCurrencies,
+  removePrepositions,
+);
 
 export default term => ({
   amount: extractNumbers(term),
   unit: extractUnits(term),
+  currency: extractCurrencies(term),
 });

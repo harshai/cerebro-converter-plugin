@@ -12,10 +12,12 @@ import {
 
 import formatNumber from 'humanize-number';
 
-export default ({ amount, unit }) => {
+export default ({ amount, unit, currency }) => {
   const from = head(unit);
   const to = last(unit);
   const value = head(amount) || 1;
+
+  console.log(currency);
 
   if (!from) return null;
   const convertObj = convert(value).from(from);
