@@ -14,6 +14,7 @@ import partsPer from '../assets/icons/partsPer.svg';
 import digital from '../assets/icons/digital.svg';
 import generic from '../assets/icons/generic.svg';
 import temperature from '../assets/icons/temperature.svg';
+import money from '../assets/icons/money.svg';
 
 const svgStyles = {
   width: '2.5rem',
@@ -43,6 +44,8 @@ const chooseIcon = (category) => {
       return <SVGInline {...svgStyles} svg={digital} />;
     case 'temperature':
       return <SVGInline {...svgStyles} svg={temperature} />;
+    case 'money':
+      return <SVGInline {...svgStyles} svg={money} />;
     default:
       return <SVGInline {...svgStyles} svg={generic} />;
   }

@@ -45,6 +45,7 @@ const extractCurrencies = compose(
   take(2),
   matchCurrencies,
   removePrepositions,
+  toLower,
 );
 
 export default term => ({

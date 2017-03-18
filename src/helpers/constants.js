@@ -1,5 +1,5 @@
 const currencies = [
-  'INR', 'USD', 'SGD',
+  'inr', 'usd', 'sgd',
 ];
 
 export default currencies;
