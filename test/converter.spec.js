@@ -10,6 +10,7 @@ describe('Converter', () => {
     const data = {
       unit: ['kg'],
       amount: [],
+      currency: [],
     };
     const conversion = converter(data);
     expect(conversion.orig.amount).to.equal('1');
@@ -20,6 +21,7 @@ describe('Converter', () => {
     const data = {
       unit: ['kg'],
       amount: [],
+      currency: [],
     };
     const conversion = converter(data);
     expect(conversion.possibleConversions).to.not.contain.a.thing.with.property('unit', 'kg');
@@ -29,6 +31,7 @@ describe('Converter', () => {
     const data = {
       unit: ['kg'],
       amount: [],
+      currency: [],
     };
     const conversion = converter(data);
     expect(conversion.possibleConversions).to.have.length.above(0);
@@ -40,6 +43,7 @@ describe('Converter', () => {
     const data = {
       unit: [],
       amount: [1],
+      currency: [],
     };
     const conversion = converter(data);
     expect(conversion).to.be.null;
@@ -49,6 +53,7 @@ describe('Converter', () => {
     const data = {
       unit: ['kg'],
       amount: [1],
+      currency: [],
     };
     const conversion = converter(data);
     expect(conversion.conversion).to.deep.equal({ amount: '1,000', unit: 'grams' });
@@ -58,6 +63,7 @@ describe('Converter', () => {
     const data = {
       unit: ['week', 'd'],
       amount: [4],
+      currency: [],
     };
     const conversion = converter(data);
     expect(conversion.conversion).to.deep.equal({ amount: '28', unit: 'days' });
@@ -67,6 +73,7 @@ describe('Converter', () => {
     const data = {
       unit: ['kg'],
       amount: [1],
+      currency: [],
     };
     const conversion = converter(data);
     expect(conversion.orig).to.deep.equal({ amount: '1', unit: 'kilogram' });
@@ -76,42 +83,52 @@ describe('Converter', () => {
     const data = [{
       unit: ['kg'],
       amount: [1],
+      currency: [],
       category: 'mass',
     }, {
       unit: ['l'],
       amount: [1],
+      currency: [],
       category: 'volume',
     }, {
       unit: ['s'],
       amount: [1],
+      currency: [],
       category: 'time',
     }, {
       unit: ['m'],
       amount: [1],
+      currency: [],
       category: 'length',
     }, {
       unit: ['m2'],
       amount: [1],
+      currency: [],
       category: 'area',
     }, {
       unit: ['bar'],
       amount: [1],
+      currency: [],
       category: 'pressure',
     }, {
       unit: ['C'],
       amount: [1],
+      currency: [],
       category: 'temperature',
     }, {
       unit: ['km/h'],
       amount: [1],
+      currency: [],
       category: 'speed',
     }, {
       unit: ['b'],
       amount: [1],
+      currency: [],
       category: 'digital',
     }, {
       unit: ['ppm'],
       amount: [1],
+      currency: [],
       category: 'partsPer',
     },
     ];
