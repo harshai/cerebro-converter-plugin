@@ -60,3 +60,4 @@ Icon.propTypes = {
 };
 
 export default Icon;
+// TODO: Remove repetition in this file.
