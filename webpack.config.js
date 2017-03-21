@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
+const FlowWebpackPlugin = require('flow-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -39,5 +40,8 @@ module.exports = {
       test: /\.svg$/,
       loader: 'raw-loader'
     }]
-  }
+  },
+  plugins: [
+    new FlowWebpackPlugin(),
+  ],
 };
