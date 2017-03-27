@@ -4,7 +4,7 @@ const FlowWebpackPlugin = require('flow-webpack-plugin');
 
 module.exports = {
   entry: {
-    index: './src/index'
+    index: ['babel-polyfill', './src/index']
   },
   output: {
     path: './dist',
