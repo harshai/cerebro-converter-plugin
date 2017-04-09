@@ -17,12 +17,13 @@ export default (amount, from, to) => {
     reject(equals(from)),
     )(convertObj.possibilities());
   const conversion = equals(from, to) ? convertObj.toBest({ exclude: [from] }) : convertTo(to);
+  const formatUnit = formatOutput('unit');
 
   return {
-    orig: formatOutput(amount, from),
-    conversion: formatOutput(conversion.val || conversion, conversion.unit || to),
+    orig: formatUnit(amount, from),
+    conversion: formatUnit(conversion.val || conversion, conversion.unit || to),
     possibleConversions: zipWith(
-      formatOutput,
+      formatUnit,
       map(convertTo, possibilities),
       possibilities,
     ),

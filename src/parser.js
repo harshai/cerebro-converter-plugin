@@ -5,6 +5,7 @@ import {
   compose,
   sortBy,
   toLower,
+  toUpper,
   reverse,
   join,
   take,
@@ -45,7 +46,7 @@ const extractCurrencies = compose(
   take(2),
   matchCurrencies,
   removePrepositions,
-  toLower,
+  toUpper,
 );
 
 export default term => ({

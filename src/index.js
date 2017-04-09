@@ -24,3 +24,5 @@ module.exports = {
   fn: plugin,
 };
 
+// TODO: Add flowtypes
+// Refractor tests acc src folder
