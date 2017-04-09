@@ -18,7 +18,3 @@ export default (conversionType) => {
 
   return (amt, unit) => ({ amt, unit });
 };
-
-
-
-
