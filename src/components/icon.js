@@ -61,3 +61,6 @@ Icon.propTypes = {
 
 export default Icon;
 // TODO: Remove repetition in this file.
+
+// TODO: Add tests
+// TODO: Add flowtype annotations

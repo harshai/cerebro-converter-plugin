@@ -17,3 +17,6 @@ Possibilities.propTypes = {
 }.isRequired;
 
 export default Possibilities;
+
+// TODO: Add tests
+// TODO: Add flowtype annotations

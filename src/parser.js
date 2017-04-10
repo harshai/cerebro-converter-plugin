@@ -54,3 +54,6 @@ export default term => ({
   unit: extractUnits(term),
   currency: extractCurrencies(term),
 });
+
+// TODO: Add tests
+// TODO: Add flowtype annotations

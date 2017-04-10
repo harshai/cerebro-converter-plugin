@@ -5,17 +5,17 @@ import supportedCurrencies from '../helpers/constants';
 import formatOutput from '../helpers/format-output';
 
 function fetchConversionRates(curencyList) {
+  /* eslint-line max-len */
   return fetch(`https://query.yahooapis.com/v1/public/yql?q=select+*+from+yahoo.finance.xchange+where+pair+=+%22${curencyList.join(',')}%22&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=`)
-    .then(res => {
+    .then((res) => {
       if (res.ok) {
         return res.json();
-      } else {
-        console.error('Unable to fetch conversion rate, falling back to cached conversion rates. ELSE');
-        new Promise.reject(null);
       }
+      console.error('Unable to fetch conversion rate, falling back to cached conversion rates.');
+      return Promise.resolve(JSON.parse(localStorage.getItem('rates')));
     })
-    .catch(err => {
-      console.error('Unable to fetch conversion rate, falling back to cached conversion rates. Then/Catch');
+    .catch(() => {
+      console.error('Unable to fetch conversion rate, falling back to cached conversion rates.');
       return Promise.resolve(JSON.parse(localStorage.getItem('rates')));
     });
 }
@@ -36,6 +36,7 @@ export default (amount, from, to) => {
   const priorityCurrencies = compose(
     take(8),
     reject(equals(to)),
+    reject(equals(from)),
   )(supportedCurrencies);
 
   return {
@@ -50,6 +51,7 @@ export default (amount, from, to) => {
   };
 };
 
-// TODO: USE LRU cache to check supportedCurrencies
-// TODO: Use Localstorage to cache conversion rates
-// TODO: Use cerebro country to default toCurr
+// TODO: Use LRU cache to check supportedCurrencies
+// TODO: Use cerebro country to default to/from and last used value if
+// TODO: Add tests
+// TODO: Add flowtype annotations

@@ -20,3 +20,6 @@ MainConversion.propTypes = {
 };
 
 export default MainConversion;
+
+// TODO: Add tests
+// TODO: Add flowtype annotations

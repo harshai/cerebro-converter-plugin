@@ -23,3 +23,5 @@ export default ({ amount, unit, currency }) => {
 };
 
 // TODO: Add color, timezones
+// TODO: Add tests
+// TODO: Add flowtype annotations

@@ -1,5 +1,9 @@
 {
   "extends": "airbnb",
+  "globals": {
+    "localStorage": true,
+    "fetch": true,
+  },
   "rules": {
     "max-len": ["error", 120, { "ignoreComments": true }],
     "react/jsx-filename-extension": [0, { "extensions": [".js"] }],

@@ -18,3 +18,6 @@ export default (conversionType) => {
 
   return (amt, unit) => ({ amt, unit });
 };
+
+// TODO: Add tests
+// TODO: Add flowtype annotations

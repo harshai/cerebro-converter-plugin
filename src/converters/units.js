@@ -37,3 +37,4 @@ export default (amount, from, to) => {
 // TODO: Trim number of possibilities to 5-7
 // TODO: Reimplement toBest(), taking the locale into consideration
 // TODO: Refractor this file
+// TODO: Add flowtype annotations

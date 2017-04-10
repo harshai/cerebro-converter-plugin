@@ -31,3 +31,6 @@ Conversions.propTypes = {
   }).isRequired,
   category: PropTypes.string.isRequired,
 };
+
+// TODO: Add tests
+// TODO: Add flowtype annotations
