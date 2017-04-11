@@ -5,7 +5,7 @@ import supportedCurrencies from '../helpers/constants';
 import formatOutput from '../helpers/format-output';
 
 function fetchConversionRates(curencyList) {
-  /* eslint-line max-len */
+  /* eslint-disable max-len */
   return fetch(`https://query.yahooapis.com/v1/public/yql?q=select+*+from+yahoo.finance.xchange+where+pair+=+%22${curencyList.join(',')}%22&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=`)
     .then((res) => {
       if (res.ok) {
@@ -52,6 +52,6 @@ export default (amount, from, to) => {
 };
 
 // TODO: Use LRU cache to check supportedCurrencies
-// TODO: Use cerebro country to default to/from and last used value if
+// TODO: Use cerebro country to default to/from and last used value if to value isn't provided
 // TODO: Add tests
 // TODO: Add flowtype annotations

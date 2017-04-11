@@ -57,3 +57,5 @@ export default term => ({
 
 // TODO: Add tests
 // TODO: Add flowtype annotations
+// TODO: tytyerueos shouldn't pick up yer, fdkjslafd;slfdjslkfdsjak shouldn't pick up day
+// TODO: Add aliases

@@ -21,3 +21,4 @@ export default (conversionType) => {
 
 // TODO: Add tests
 // TODO: Add flowtype annotations
+// TODO: Should round decimals to 2 digits => 0.50 not 0.5

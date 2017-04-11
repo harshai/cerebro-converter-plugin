@@ -3,7 +3,6 @@ import converter from './converter';
 import parse from './parser';
 import DisplayResults from './display-results';
 
-
 const doNothing = results => !results;
 
 const plugin = ({ term, display }) => {
