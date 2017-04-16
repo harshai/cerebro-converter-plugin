@@ -51,7 +51,7 @@ export default (amount, from, to) => {
   };
 };
 
-// TODO: Use LRU cache to check supportedCurrencies
+// TODO: Use LRU cache to prompt toCurr
 // TODO: Use cerebro country to default to/from and last used value if to value isn't provided
 // TODO: Add tests
 // TODO: Add flowtype annotations
