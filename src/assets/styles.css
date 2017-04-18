@@ -1,3 +1,7 @@
+.main {
+  width: 80%;
+}
+
 .table {
   width: 100%;
 }
@@ -9,10 +13,12 @@
 .amount {
   text-align: right;
   padding-right: 0.5rem;
+  width: 50%;
 }
 
 .unit {
   padding-left: 0.5rem;
+  width: 50%;
 }
 
 .regularText {

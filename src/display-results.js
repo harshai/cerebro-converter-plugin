@@ -6,7 +6,7 @@ import MainConversion from './components/main-conversion';
 import Icon from './components/icon';
 
 const Conversions = ({ orig, conversion, possibleConversions, category }) => (
-  <div>
+  <div className={styles.main}>
     <Icon category={category} />
     <MainConversion orig={orig} conversion={conversion} />
     <hr className={styles.divider} />
