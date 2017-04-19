@@ -14,3 +14,5 @@ Examples of commands:
 - 1m/s in km/h
 - 1kg
 - 1 cm
+- USD to INR
+- 25 SGD in CYN
