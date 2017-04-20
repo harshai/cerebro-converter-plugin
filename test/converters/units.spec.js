@@ -5,7 +5,7 @@ import unitConverter from '../../src/converters/units';
 
 chai.use(chaiThings);
 
-describe.only('Unit converter', () => {
+describe('Unit converter', () => {
   it('should not include from unit in possible conversions', () => {
     const conversion = unitConverter(2, 'kg', 'kg');
     expect(conversion.possibleConversions).to.not.contain.a.thing.with.property('unit', 'kg');
@@ -74,5 +74,3 @@ describe.only('Unit converter', () => {
     forEach(runTest, data);
   });
 });
-
-// TODO: Split this file based on converters.
