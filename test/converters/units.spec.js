@@ -1,139 +1,73 @@
 import chai, { expect } from 'chai';
 import { forEach } from 'ramda';
 import chaiThings from 'chai-things';
-import converter from '../../src/converter';
+import unitConverter from '../../src/converters/units';
 
 chai.use(chaiThings);
 
-describe('Converter', () => {
-  it('should default amount to 1 when no unit is present and unit to be signular', () => {
-    const data = {
-      unit: ['kg'],
-      amount: [],
-      currency: [],
-    };
-    const conversion = converter(data);
-    expect(conversion.orig.amount).to.equal('1');
-    expect(conversion.orig.unit).to.equal('kilogram');
-  });
-
+describe.only('Unit converter', () => {
   it('should not include from unit in possible conversions', () => {
-    const data = {
-      unit: ['kg'],
-      amount: [],
-      currency: [],
-    };
-    const conversion = converter(data);
+    const conversion = unitConverter(2, 'kg', 'kg');
     expect(conversion.possibleConversions).to.not.contain.a.thing.with.property('unit', 'kg');
   });
 
   it('should return all possibilities for given unit', () => {
-    const data = {
-      unit: ['kg'],
-      amount: [],
-      currency: [],
-    };
-    const conversion = converter(data);
+    const conversion = unitConverter(1, 'kg', 'kg');
     expect(conversion.possibleConversions).to.have.length.above(0);
     expect(conversion.possibleConversions).to.all.have.property('unit');
     expect(conversion.possibleConversions).to.all.have.property('amount');
   });
 
-  it('should return null if no from unit is there', () => {
-    const data = {
-      unit: [],
-      amount: [1],
-      currency: [],
-    };
-    const conversion = converter(data);
-    expect(conversion).to.be.null;
-  });
-
   it('should return best conversion if no to unit is given', () => {
-    const data = {
-      unit: ['kg'],
-      amount: [1],
-      currency: [],
-    };
-    const conversion = converter(data);
+    const conversion = unitConverter(1, 'kg', 'kg');
     expect(conversion.conversion).to.deep.equal({ amount: '1,000', unit: 'grams' });
   });
 
   it('should return to conversion when to unit is given', () => {
-    const data = {
-      unit: ['week', 'd'],
-      amount: [4],
-      currency: [],
-    };
-    const conversion = converter(data);
+    const conversion = unitConverter(4, 'week', 'd');
     expect(conversion.conversion).to.deep.equal({ amount: '28', unit: 'days' });
   });
 
   it('should return original amount and unit', () => {
-    const data = {
-      unit: ['kg'],
-      amount: [1],
-      currency: [],
-    };
-    const conversion = converter(data);
+    const conversion = unitConverter(1, 'kg', 'kg');
     expect(conversion.orig).to.deep.equal({ amount: '1', unit: 'kilogram' });
   });
 
   it('should return the conversion category', () => {
     const data = [{
-      unit: ['kg'],
-      amount: [1],
-      currency: [],
+      unit: 'kg',
       category: 'mass',
     }, {
-      unit: ['l'],
-      amount: [1],
-      currency: [],
+      unit: 'l',
       category: 'volume',
     }, {
-      unit: ['s'],
-      amount: [1],
-      currency: [],
+      unit: 's',
       category: 'time',
     }, {
-      unit: ['m'],
-      amount: [1],
-      currency: [],
+      unit: 'm',
       category: 'length',
     }, {
-      unit: ['m2'],
-      amount: [1],
-      currency: [],
+      unit: 'm2',
       category: 'area',
     }, {
-      unit: ['bar'],
-      amount: [1],
-      currency: [],
+      unit: 'bar',
       category: 'pressure',
     }, {
-      unit: ['C'],
-      amount: [1],
-      currency: [],
+      unit: 'C',
       category: 'temperature',
     }, {
-      unit: ['km/h'],
-      amount: [1],
-      currency: [],
+      unit: 'km/h',
       category: 'speed',
     }, {
-      unit: ['b'],
-      amount: [1],
-      currency: [],
+      unit: 'b',
       category: 'digital',
     }, {
-      unit: ['ppm'],
-      amount: [1],
-      currency: [],
+      unit: 'ppm',
       category: 'partsPer',
     },
     ];
     const runTest = (unitObj) => {
-      const conversion = converter(unitObj);
+      const conversion = unitConverter(1, unitObj.unit, unitObj.unit);
       expect(conversion.category).to.equal(unitObj.category);
     };
 

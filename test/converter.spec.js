@@ -9,7 +9,7 @@ describe('Converter', () => {
       unit: [],
       currency: ['INR', 'USD']
     };
-    expect(() => converter(input)).to.throw('fx error');
+    expect(() => converter(input)).to.throw('fx error'); // TODO: Fix this test.
   });
 
   it('should call convertUnis', () => {
@@ -20,6 +20,7 @@ describe('Converter', () => {
     }
     expect(converter(input)).to.have.keys(['orig', 'conversion', 'possibleConversions', 'category']);
   });
+
   it('should return null', ()=> {
     const input = {
       amount: [],
@@ -27,5 +28,5 @@ describe('Converter', () => {
       currency: []
     };
     expect(converter(input)).to.be.null;
-  })
+  });
 });
